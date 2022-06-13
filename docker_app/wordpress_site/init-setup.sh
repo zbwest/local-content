@@ -49,8 +49,6 @@ then
     rm -rf wordpress/wp-content/plugins/valtiraidx
     rm -rf wordpress/wp-content/plugins/valtiraspot
     rm -rf wordpress/wp-content/themes/valtira
-f
-
 else
     echo "WP content already exists..."
 fi
