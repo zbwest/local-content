@@ -1,0 +1,6 @@
+# Plugins Ignore
+docker_app/wordpress_site/KrisLindahlCom/
+docker_app/wordpress_site/db_data/
+docker_app/wordpress_site/wordpress/
+docker_app/wordpress_site/.idea/*
+docker_app/wordpress_site/init_db/*
