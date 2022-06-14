@@ -17,9 +17,10 @@ then
     echo "Setting up initial database scripts for WP ...."
     mkdir tmp
     mkdir init_db
-    cp init/init-db-script.tar.gz tmp/.
+    find init -name 'init-db*.*' -exec cp {} tmp/ \;
+    #cp init/init-db-script.tar.gz.* tmp/.
     cd tmp
-    tar -xvf init-db-script.tar.gz --directory ../init_db/
+    cat init-db-script.tar.gz.* | tar xzvf - --directory ../init_db/
     cd ..
 else
     echo "Init SQL already downloads. Skilling init db script run..."
@@ -34,14 +35,17 @@ then
     mkdir wordpress
     mkdir wordpress/wp-content
     ## Change this line to download from net
-    cp init/uploads.tar.gz tmp/.
-    cp init/themes.tar.gz tmp/.
-    cp init/plugins.tar.gz tmp/.
+    find init -name 'uploads.*' -exec cp {} tmp/ \;
+    find init -name 'themes.*' -exec cp {} tmp/ \;
+    find init -name 'plugins.*' -exec cp {} tmp/ \;
+    #cp init/uploads.tar.gz.* tmp/.
+    #cp init/themes.tar.gz.* tmp/.
+    #cp init/plugins.tar.gz.* tmp/.
 
     cd tmp
-    tar -zxf  uploads.tar.gz --directory ../wordpress/wp-content/
-    tar -zxf  themes.tar.gz --directory ../wordpress/wp-content/
-    tar -zxf  plugins.tar.gz --directory ../wordpress/wp-content/
+    cat uploads.tar.gz.* | tar xzvf - --directory ../wordpress/wp-content/
+    cat themes.tar.gz.* | tar xzvf - --directory ../wordpress/wp-content/
+    cat plugins.tar.gz.* | tar xzvf - --directory ../wordpress/wp-content/
 
     cd ..
     rm -rf wordpress/wp-content/plugins/klrewprocketdelayjsexclusions
